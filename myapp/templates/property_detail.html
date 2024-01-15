@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}Property Detail - {{ property.name }}{% endblock %}
+
+{% block content %}
+<section>
+    <h2>Property Detail - {{ property.name }}</h2>
+    <p>Address: {{ property.address }}</p>
+    <p>Location: {{ property.location }}</p>
+    <h3>Units:</h3>
+    <ul>
+        {% for unit in property.unit_set.all %}
+            <li>{{ unit.unit_type }} - Rent: {{ unit.rent }}</li>
+        {% endfor %}
+    </ul>
+</section>
+{% endblock %}

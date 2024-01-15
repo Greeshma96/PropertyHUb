@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title %}Property Listing{% endblock %}
+
+{% block content %}
+<section>
+    <h2>Property Listing</h2>
+    <style>
+        h2 {
+            color: #cc3387;
+        }
+    </style>
+    <ul>
+        {% for property in properties %}
+        <div class="property-block">
+            <li><a href="{% url 'property_detail' property.id %}">{{ property.name }}</a></li><br>
+            <button onclick="window.location.href='{% url 'add_unit' property.id %}'">Add Unit</button>
+        </div>
+        <div class="block-space"></div>
+<br>
+        {% endfor %}
+<br>
+    </ul>
+    <button onclick="window.location.href='{% url 'add_property' %}'">Add Property</button>
+    <button onclick="window.location.href='{% url 'tenant_management' %}'">View Tenants</button>
+</section>
+{% endblock %}

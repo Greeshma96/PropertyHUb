@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block title %}Add Tenant{% endblock %}
+
+{% block content %}
+<section>
+    <h2>Add Tenant</h2>
+    <form method="post" action="{% url 'add_tenant' unit.id %}">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Add Tenant</button>
+    </form>
+</section>
+{% endblock %}

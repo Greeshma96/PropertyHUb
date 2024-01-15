@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block title %}Add Property{% endblock %}
+
+{% block content %}
+<section>
+    <h2>Add Property</h2>
+    <form method="post" action="{% url 'add_property' %}">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Add Property</button>
+    </form>
+</section>
+{% endblock %}

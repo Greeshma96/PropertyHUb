@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %}Tenant Management{% endblock %}
+
+{% block content %}
+<section>
+    <h2>Tenant Management</h2>
+    <ul>
+        {% for tenant in tenants %}
+            <li>
+                <strong>{{ tenant.name }}</strong>
+                <p>Address: {{ tenant.address }}</p>
+                <p>Document Proofs: {{ tenant.document_proofs }}</p>
+                <p>Unit: {{ tenant.unit.unit_type }} - Property: {{ tenant.unit.property.name }}</p>
+                <p>Agreement End Date: {{ tenant.agreement_end_date }}</p>
+                <p>Monthly Rent Date: {{ tenant.monthly_rent_date }}</p>
+            </li>
+        {% endfor %}
+    </ul>
+    <p>Number of tenants: {{ tenants|length }}</p>
+</section>
+{% endblock %}
